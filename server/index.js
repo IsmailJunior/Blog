@@ -6,6 +6,7 @@ const cors = require( "cors" );
 const cookieParser = require( "cookie-parser" );
 const bodyParser = require( "body-parser" );
 const userRouter = require( "./router/authRouter" );
+const morgan = require( "morgan" );
 
 mongoose.connect( "mongodb://localhost:27017/auth", {
 	useNewUrlParser: true,
@@ -30,7 +31,7 @@ app.use( session( {
 } ) );
 
 app.use( cookieParser( "cod" ) );
-
+app.use( morgan( "dev" ) );
 app.use(passport.initialize());
 app.use(passport.session());
 require( "./config/passportConfig" )( passport );
