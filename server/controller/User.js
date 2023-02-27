@@ -5,7 +5,7 @@ module.exports.register = async ( req, res ) =>
 	const { username, password } = req.body;
 	const user = new User( { username } );
 	const signedUser = await User.register( user, password );
-	console.log( signedUser );
+	console.log( signedUser, "Sign up successfully!" );
 	req.login( signedUser, () =>
 	{
 		res.send( req.user );
@@ -32,6 +32,7 @@ module.exports.logout = ( req, res, next ) =>
 			return next( err );
 		}
 
+		console.log( "Logout successfully!" )
 		res.send( "Logout" );
 	} );
 };

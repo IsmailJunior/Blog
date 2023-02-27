@@ -1,24 +1,12 @@
-import styled from "styled-components";
-
-const SubmitButton = styled.button`
-	background-color: black;
-	color: white;
-	cursor: pointer;
-	border: none;
-	padding: 10px;
-	border-radius: 5px;
-	transition: all 300ms ease;
-
-	&:hover {
-		background-color: white;
-		color: black;
-	}
-`
+import classes from "./Effect.module.css";
 
 const Submit = ( { onClick, name } ) =>
 {
 	return (
-		<SubmitButton onClick={onClick}>{name}</SubmitButton>
+		<div className={classes.wraper}>
+			<button className={classes.submit} onClick={ onClick }>{ name }</button>
+			<div className={ classes.outline } />
+		</div>
 	)
 };
 

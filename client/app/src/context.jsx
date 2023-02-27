@@ -40,7 +40,8 @@ export const UserContextProvider = ( { children } ) =>
 	const setUserData = ( value ) =>
 	{
 		setData(value)
-	}
+  }
+  
 	const register = () =>
   {
     axios( {
@@ -116,7 +117,7 @@ export const UserContextProvider = ( { children } ) =>
         {
           window.localStorage.removeItem( "token" );
           window.localStorage.removeItem( "isLoggedIn" );
-          window.location.href = "/";
+          window.location.href = "/sign-in";
     })
   }
 	

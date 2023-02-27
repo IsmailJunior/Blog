@@ -7,13 +7,16 @@ const cookieParser = require( "cookie-parser" );
 const bodyParser = require( "body-parser" );
 const userRouter = require( "./router/authRouter" );
 const morgan = require( "morgan" );
+const Error = require( "./utils/expressError" );
+const path = require( "path" );
+const DBURL = "mongodb://localhost:27017/auth";
 
-mongoose.connect( "mongodb://localhost:27017/auth", {
+mongoose.connect( DBURL, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 }, () =>
 {
-	console.log( "Connection Successfully!" );
+	console.log( "Connection to the database successfully!" );
 })
 
 const app = express();
@@ -32,9 +35,28 @@ app.use( session( {
 
 app.use( cookieParser( "cod" ) );
 app.use( morgan( "dev" ) );
+app.set( "view engine", "ejs" );
+app.set( "views", path.join( __dirname, "views" ) );
 app.use(passport.initialize());
 app.use(passport.session());
 require( "./config/passportConfig" )( passport );
 app.use( "/", userRouter );
 
-app.listen( 4000 );
+app.all( "*", ( req, res, next ) =>
+{
+	next( new Error( "404 Page not found!", 404 ) );
+} );
+
+app.use( ( err, req, res, next ) =>
+{
+	const { statusCode = 500 } = err;
+	if ( !err.message ) err.message = "Oh No, Something Went Wrong!";
+	res.status( statusCode ).render( "error", { err } );
+} );
+
+const PORT = 4000;
+
+app.listen( PORT, () =>
+{
+	console.log( `Listening on port ${ PORT }, Start receiving calls!` );
+} );

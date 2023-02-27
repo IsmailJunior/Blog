@@ -1,5 +1,5 @@
-import AuthPage from "./pages/AuthPage";
-import TestPage from "./pages/TestPage";
+import SignUpPage from "./pages/SignUpPage";
+import SignInPage from "./pages/SignInPage";
 import Layout from "./pages/layouts/Layout";
 import { Route, Switch } from "react-router-dom";
 function App ()
@@ -7,12 +7,12 @@ function App ()
   return (
   <Layout>
    <Switch>
-    <Route path="/" exact>
-      <AuthPage />
+    <Route path="/sign-up">
+      <SignUpPage />
         </Route>
-        <Route path="/test">
-          <TestPage />
-    </Route>
+            <Route path="/sign-in">
+      <SignInPage />
+        </Route>
     </Switch>
     </Layout>
   );

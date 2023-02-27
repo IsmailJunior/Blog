@@ -3,24 +3,25 @@ import styled from "styled-components";
 
 const Container = styled.div`
 	display: flex;
-	justify-content: center;
-	padding: 5px;
+	justify-content: start;
+	background-color: #000000;
+	opacity: 1;
+	background-image: radial-gradient(#383838 0.4px, #000000 0.4px);
+	background-size: 2px 2px;
 `;
 
 const PrimaryButton = styled.button`
-	background-color: black;
-	color: white;
+	background: transparent;
+	color: gray;
 	border: none;
-	padding: 10px;
-	border-radius: 10px;
-	margin-top: 10px;
+	padding: 15px;
 	margin-left: 10px;
 	cursor: pointer;
 	transition: all 300ms ease;
 
 	&:hover {
-		background-color: white;
-		color: black;
+		color: white;
+		background-color: rgba(100,100,100,0.3)
 	}
 `
 
@@ -28,15 +29,13 @@ const NavigationBar = () =>
 {
 	return (
 		<Container>
-			<Link to="/">
-				<PrimaryButton>Home</PrimaryButton>
+			<Link to="/sign-up">
+				<PrimaryButton>Sign Up</PrimaryButton>
 			</Link>
-
-			<Link to="/test">
-				<PrimaryButton>Blog</PrimaryButton>
+			<Link to="/sign-in">
+				<PrimaryButton>Sign In</PrimaryButton>
 			</Link>
 			<PrimaryButton>About</PrimaryButton>
-			<PrimaryButton>Sign Up</PrimaryButton>
 		</Container>
 	)
 };
