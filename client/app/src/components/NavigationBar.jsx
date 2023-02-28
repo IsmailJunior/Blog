@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import UserContext from "../context";
+import { useContext } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -27,13 +29,27 @@ const PrimaryButton = styled.button`
 
 const NavigationBar = () =>
 {
+	  const UserContextProvider = useContext( UserContext );
 	return (
 		<Container>
+		{ !UserContextProvider.isLoggedIn ? 
 			<Link to="/sign-up">
 				<PrimaryButton>Sign Up</PrimaryButton>
 			</Link>
+		: null}
+
+		{ !UserContextProvider.isLoggedIn ? 
 			<Link to="/sign-in">
 				<PrimaryButton>Sign In</PrimaryButton>
+			</Link>
+		: null}
+			{ UserContextProvider.isLoggedIn ? 
+			<Link to="/new-post">
+				<PrimaryButton>New Post</PrimaryButton>
+			</Link>
+		: null}
+			<Link to="/posts">
+				<PrimaryButton>Posts</PrimaryButton>
 			</Link>
 			<PrimaryButton>About</PrimaryButton>
 		</Container>

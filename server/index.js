@@ -6,6 +6,7 @@ const cors = require( "cors" );
 const cookieParser = require( "cookie-parser" );
 const bodyParser = require( "body-parser" );
 const userRouter = require( "./router/authRouter" );
+const postRouter = require( "./router/postsRouter" );
 const morgan = require( "morgan" );
 const Error = require( "./utils/expressError" );
 const path = require( "path" );
@@ -41,6 +42,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 require( "./config/passportConfig" )( passport );
 app.use( "/", userRouter );
+app.use( "/posts", postRouter );
 
 app.all( "*", ( req, res, next ) =>
 {

@@ -1,9 +1,8 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const PrimaryLabel = styled.label`
 	padding-right: 200px;
 `
-
 const Label = ({id, text}) =>
 {
 	return (

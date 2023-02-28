@@ -8,10 +8,10 @@ const UserInput = styled.input`
 	border-radius: 5px;
 	border: gray 1px solid;
 `
-const Input = ( { setValue, type, id } ) =>
+const Input = ( { setValue, type, id, name } ) =>
 {
 	return (
-		<UserInput id={id} type={type} onChange={e => setValue(e.target.value)} />
+		<UserInput required name={name} id={id} type={type} onChange={e => setValue(e.target.value)} />
 	)
 };
 
