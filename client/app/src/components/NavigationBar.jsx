@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import UserContext from "../context";
+import UserContext from "../userContext";
 import { useContext } from "react";
 import styled from "styled-components";
 
@@ -51,7 +51,6 @@ const NavigationBar = () =>
 			<Link to="/posts">
 				<PrimaryButton>Posts</PrimaryButton>
 			</Link>
-			<PrimaryButton>About</PrimaryButton>
 		</Container>
 	)
 };

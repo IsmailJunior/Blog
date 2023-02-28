@@ -15,3 +15,11 @@ module.exports.posts = async ( req, res ) =>
 	console.log( posts );
 	res.send( [ posts ] );
 };
+
+module.exports.showPost = async ( req, res ) =>
+{
+	const { id } = req.params;
+	const post = await Post.findById( id );
+	console.log( post );
+	res.send( post );
+};

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Input from "../components/Input";
 import Submit from "../components/Submit";
 import Label from "../components/Label";
-import UserContext from "../context";
+import UserContext from "../userContext";
 const SignUpPage = () =>
 {
   const UserContextProvider = useContext( UserContext );
