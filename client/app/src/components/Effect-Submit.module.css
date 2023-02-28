@@ -1,0 +1,52 @@
+:root {
+	--cyan: cyan;
+	--light-cyan: #32fafa66;
+	--background: #000000;
+	--primary-pattern: #383838;
+	--secondray-pattern: #000000;
+	--primary-border: #00ffff;
+	--secondray-border: #8080804d;
+}
+
+.outline {
+	position: absolute;
+	width: 270px;
+	height: 43px;
+	background: radial-gradient(var(--secondray-border), var(--primary-border), var(--secondray-border));
+	top: 19px;
+	left: 6px;
+	z-index: -1;
+	border-radius: 5px;
+	transform: scaleX(0);
+	transform-origin: center;
+	transition: all 900ms ease;
+}
+
+.wraper {
+	position: relative;
+}
+
+.submit {
+	background-color: var(--background);
+	opacity: 1;
+	background-image: radial-gradient(var(--primary-pattern) 0.4px, var(--secondray-pattern) 0.4px);
+	background-size: 2px 2px;
+	color: cyan;
+	width: 270px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	cursor: pointer;
+	padding: 10px;
+	border: none;
+	transition: all 900ms ease;
+	box-shadow: inset 0 0 20px var(--light-cyan);
+	font-size: large;
+}
+
+.submit:hover {
+	text-shadow: 0 0 10px var(--light-cyan), 0 0 20px var(--light-cyan), 0 0 30px var(--light-cyan), 0 0 40px var(--light-cyan), 0 0 50px var(--light-cyan), 0 0 60px var(--light-cyan), 0 0 70px var(--light-cyan);
+}
+
+.submit:hover +  .outline{
+	transform: scaleX(1);
+}
