@@ -2,7 +2,7 @@ import { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import PostContext from "../postContext";
 import Button from "../components/Button";
-
+import Post from "../components/Post";
 
 const PostsPage = () =>
 {
@@ -19,8 +19,7 @@ const PostsPage = () =>
 			{
 				return (
 					<div key={ i.toString() }>
-						<h1>{ el.title }</h1>
-						<h4>{ el.author }</h4>
+						<Post title={ el.title } author={ el.author }/>
 						<Link to={`/posts/${el._id}`}>
 							<Button onClick={PostContextPorvider.showPost(el._id)} name="Show"/>
 						</Link>
